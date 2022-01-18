@@ -1,4 +1,4 @@
-from save_the_universe import input_parser as ip
+import input_parser as ip
 
 
 def should_switch(current_engine: str, query: str) -> bool:
@@ -38,5 +38,10 @@ def count_min_switches(
 def save_the_universe():
     cases = ip.get_cases(int(input('Enter the number of cases: ')))
     for index, case in enumerate(cases):
-        switches = count_min_switches(case[0], case[1], 0, len(case[1]))
+        switches = count_min_switches(
+            case[0],
+            case[1],
+            len(case[1]),
+            len(case[0]),
+        )
         print(f'Case #{index}: {switches}')
